@@ -1,0 +1,31 @@
+otelcol.receiver.otlp "otlp_receiver" {
+	grpc {
+		endpoint = "0.0.0.0:4317"
+	}
+
+	http {
+		endpoint = "0.0.0.0:4318"
+	}
+
+	output {
+		traces  = [otelcol.exporter.otlphttp.grafanacloud.input]
+		metrics = [otelcol.exporter.otlphttp.grafanacloud.input]
+		logs    = [otelcol.exporter.otlphttp.grafanacloud.input]
+	}
+}
+
+livedebugging {
+	enabled = true
+}
+
+otelcol.exporter.otlphttp "grafanacloud" {
+	client {
+		endpoint = "https://otlp-gateway-prod-us-east-0.grafana.net/otlp/"
+		auth     = otelcol.auth.basic.grafanacloud.handler
+	}
+}
+
+otelcol.auth.basic "grafanacloud" {
+	username = "872013"
+	password = "glc_eyJvIjoiMTA2Nzg5MSIsIm4iOiJzdGFjay04NzIwMTMtb3RscC13cml0ZS1taW5lY3JhZnQiLCJrIjoiYkFZNjAyUnBWVDBTNDU4MVhhNGZ1UDBLIiwibSI6eyJyIjoicHJvZC11cy1lYXN0LTAifX0="
+}
