@@ -1,0 +1,14 @@
+2025-03-15 14:37:53 [INFO] [traceId=e76d1b6cb56dc3fddfd6371bcee63148 spanId=fdc81f7facceeef0]: GET /
+2025-03-15 14:37:53 [INFO] [traceId=e76d1b6cb56dc3fddfd6371bcee63148 spanId=fdc81f7facceeef0]: Hello World!
+2025-03-15 14:37:54 [INFO] [traceId=be0c1286f552364502b4c4937fc51310 spanId=94c07440698bc12f]: GET /
+2025-03-15 14:37:54 [INFO] [traceId=be0c1286f552364502b4c4937fc51310 spanId=94c07440698bc12f]: Hello World!
+2025-03-15 14:38:37 [INFO] [traceId=a9d91d2e92ca47ba3c90920f31d76f3f spanId=d8c1eca5e65af25c]: GET /
+2025-03-15 14:38:37 [INFO] [traceId=a9d91d2e92ca47ba3c90920f31d76f3f spanId=d8c1eca5e65af25c]: Hello World!
+2025-03-15 14:38:37 [INFO] [traceId=e0cdea66b5ab2e7ad773b504b751bbab spanId=bba51d256811f533]: GET /
+2025-03-15 14:38:37 [INFO] [traceId=e0cdea66b5ab2e7ad773b504b751bbab spanId=bba51d256811f533]: Hello World!
+2025-03-15 14:38:38 [INFO] [traceId=b8745e3efdebad4514ed14a27ed3612f spanId=40024338e7238f7d]: GET /
+2025-03-15 14:38:38 [INFO] [traceId=b8745e3efdebad4514ed14a27ed3612f spanId=40024338e7238f7d]: Hello World!
+2025-03-15 15:01:38 [INFO] [traceId=1db1f01c971844cbe651aed913b96ec5 spanId=fc83ca0aef5cf891]: GET /
+2025-03-15 15:01:38 [INFO] [traceId=1db1f01c971844cbe651aed913b96ec5 spanId=fc83ca0aef5cf891]: Hello World!
+2025-03-15 15:01:38 [INFO] [traceId=10ec2c4f58943d2f763e807c5c2184e5 spanId=e881213cdfb5bbfc]: GET /
+2025-03-15 15:01:38 [INFO] [traceId=10ec2c4f58943d2f763e807c5c2184e5 spanId=e881213cdfb5bbfc]: Hello World!
