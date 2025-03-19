@@ -11,6 +11,7 @@ const routes = [
       <div>
         Home
         <Link to="/route1">Route 1</Link>
+        <Link to="/route2">Route 2</Link>
       </div>
     ),
   },

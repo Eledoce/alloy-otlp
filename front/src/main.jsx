@@ -18,13 +18,12 @@ import { SimpleSpanProcessor } from '@opentelemetry/sdk-trace-base'
 import { ConsoleSpanExporter } from '@opentelemetry/sdk-trace-base'
 import { registerInstrumentations } from '@opentelemetry/instrumentation'
 import { FetchInstrumentation } from '@opentelemetry/instrumentation-fetch'
-import { XMLHttpRequestInstrumentation } from '@opentelemetry/instrumentation-xml-http-request'
 
 initializeFaro({
   // cambiar por el valor que da la seccion de frontend en grafana
-  url: 'https://faro-collector-prod-us-east-0.grafana.net/collect/abcdefghijklmnopqrstuvwxyz',
+  url: 'https://faro-collector-prod-us-east-0.grafana.net/collect/abcdefghx',
   app: {
-    name: 'aeua', // cambiar el nombre de la app por el que pusieron en la seccion de frontend en grafana
+    name: 'front-name', // cambiar el nombre de la app por el que pusieron en la seccion de frontend en grafana
     version: '1.0.0',
     environment: 'production',
   },

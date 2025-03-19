@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 const logger = require('./instrumentation')
 const { metrics } = require('@opentelemetry/api')
 
@@ -12,11 +13,8 @@ const endpointAccessCounter = meter.createCounter('http_endpoint', {
   description: 'peticiones y la url',
 })
 
-// Middleware CORS para permitir solicitudes de cualquier origen
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*')
-  next()
-})
+// Middleware para permitir solicitudes de cualquier origen
+app.use(cors())
 
 // Middleware para loguear cada solicitud
 app.use((req, res, next) => {
@@ -32,7 +30,12 @@ app.get('/', (req, res) => {
 })
 
 app.get('/users', (req, res) => {
-  res.send('users')
+  endpointAccessCounter.add(1, { url: '/users', algo: 'un-valor' }) // Incrementa el contador de la métrica y le agrega un label llamado url con el valor '/users' en este caso
+  const users = [
+    { id: 1, name: 'John Doe' },
+    { id: 2, name: 'Jane Doe' },
+  ]
+  res.json(users)
 })
 
 app.get('/error', (req, res) => {
@@ -46,7 +49,7 @@ app.get('/warn', (req, res) => {
 })
 
 // Inicia el servidor
-const PORT = 3001
+const PORT = 3002
 app.listen(PORT, () => {
   console.log(`Servidor iniciado en http://localhost:${PORT}`)
   logger.info(`Servidor iniciado en http://localhost:${PORT}`)
