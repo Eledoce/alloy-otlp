@@ -1,6 +1,16 @@
 const express = require('express')
 const logger = require('./instrumentation')
+const { metrics } = require('@opentelemetry/api')
+
 const app = express()
+
+// el meter es el objeto que se usa para crear metricas
+const meter = metrics.getMeter('otel-test-meter')
+
+// creacion de metricas, en este caso es un contador que se llama http_endpoint (en grafana aparecera como http_endpoint_total)
+const endpointAccessCounter = meter.createCounter('http_endpoint', {
+  description: 'peticiones y la url',
+})
 
 // Middleware CORS para permitir solicitudes de cualquier origen
 app.use((req, res, next) => {
@@ -17,6 +27,7 @@ app.use((req, res, next) => {
 
 // Rutas
 app.get('/', (req, res) => {
+  endpointAccessCounter.add(1, { url: '/' }) // Incrementa el contador de la métrica y le agrega un label llamado url con el valor '/' en este caso
   res.send('Hello World!')
 })
 
@@ -35,7 +46,7 @@ app.get('/warn', (req, res) => {
 })
 
 // Inicia el servidor
-const PORT = 3000
+const PORT = 3001
 app.listen(PORT, () => {
   console.log(`Servidor iniciado en http://localhost:${PORT}`)
   logger.info(`Servidor iniciado en http://localhost:${PORT}`)
